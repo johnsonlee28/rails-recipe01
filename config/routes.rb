@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   resource :user
 
+  resources :categories
+
 end
