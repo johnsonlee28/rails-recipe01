@@ -20,4 +20,10 @@ class Event < ApplicationRecord
    self.friendly_id
  end
 
+ protected
+
+ def generate_friendly_id
+   self.friendly_id ||= SecureRandom.uuid
+ end
+
 end
