@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
 
+  include RankedModel
+  ranks :row_order
+
   belongs_to :category, :optional => true
 
   STATUS = ["draft", "public", "private"]
