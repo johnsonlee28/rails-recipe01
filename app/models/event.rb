@@ -19,6 +19,8 @@ class Event < ApplicationRecord
 
  accepts_nested_attributes_for :tickets, :allow_destroy => true, :reject_if => :all_blank
 
+ has_many :registrations, :dependent => :destroy 
+
  def to_param
    self.friendly_id
  end
