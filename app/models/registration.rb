@@ -1,5 +1,8 @@
 class Registration < ApplicationRecord
 
+  scope :by_status, ->(s){ where( :status => s )}
+  scope :by_ticket, ->(t){ where( :ticket_id => t )}
+
   STATUS = ["pending", "confirmed"]
   validates_inclusion_of :status, :in => STATUS
   validates_presence_of :status, :ticket_id
