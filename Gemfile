@@ -50,6 +50,8 @@ gem 'ckeditor'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
 gem 'kaminari'
+gem 'ransack'
+gem 'paper_trail'
 
 group :development, :test do
   gem 'rspec-rails'
