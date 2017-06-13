@@ -10,12 +10,12 @@
   <%= link_to "打開前台", event_path(@event), :target => "_blank", :class => "btn btn-primary" %>
 </p>
 
-<canvas id="myChart1" width="400" height="200"></canvas>
+<canvas id="myChart3" width="400" height="200"></canvas>
 <script>
-  var ctx1 = document.getElementById("myChart1");
-  var myChart1 = new Chart(ctx1, {
-    type: 'bar',
-    data: <%= raw @data1.to_json %>,
+  var ctx3 = document.getElementById("myChart3");
+  var myChart3 = new Chart(ctx3, {
+    type: 'line',
+    data: <%= raw @data3.to_json %>,
     options: {
       scales: {
         yAxes: [{

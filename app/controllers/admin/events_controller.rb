@@ -41,6 +41,22 @@ class Admin::EventsController < AdminController
         borderWidth: 1
       }]
     }
+
+    if @event.registrations.any?
+      dates = (@event.registrations.order("id ASC").first.created_at.to_date..Date.today).to_a
+
+      @data3 = {
+        labels: dates,
+        datasets: Registration::STATUS.map do |s|
+          {
+            :label => I18n.t(s, :scope => "registration.status"),
+            :data => dates.map{ |d|
+              @event.registrations.by_status(s).where( "created_at >= ? AND created_at <= ?", d.beginning_of_day, d.end_of_day).count},
+              borderColor: status_colors[s]
+          }
+        end
+      }
+    end
   end
 
   def new
