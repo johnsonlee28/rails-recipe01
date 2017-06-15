@@ -1,5 +1,6 @@
 require 'csv'
 class Admin::EventRegistrationsController < ApplicationController
+  before_action :require_editor!
 
   before_action :find_event
 
