@@ -1,0 +1,15 @@
+<link rel="stylesheet" media="all" href="/assets/email.css" />
+<style>
+  p { color: red}
+</style>
+<body>
+  <p style="color:red; font-family: 'Helvetica N=eue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight:normal;">TEST</p>
+</body>
+
+<p>Hi <%= @registration.name %>,</p>
+
+<p>您已完成报名 <%= link_to @event.name, event_url(@event) %></p>
+
+<% content_for :action do %>
+  <%= link_to "浏览报名结果", event_registration_url(@event, @registration), :class => "btn-primary", :itemprop => "url"%>
+<% end %>
